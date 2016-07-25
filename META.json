@@ -1,0 +1,45 @@
+
+{
+   "name": "db_info",
+   "abstract": "Extension to get information about the database: size, owner, name,tablespces, ext,  obj count,etc",
+   "description": "Extension to get information about the database: size, owner, name,tablespces, ext,  obj count,etc",
+   "version": "0.1.0",
+   "maintainer": [
+      "<asotolongo@gmail.com>"
+   ],
+   "license": {
+      "PostgreSQL": "http://www.postgresql.org/about/licence"
+   },
+  
+   "provides": {
+     "db_info": {
+       "file": "db_info--0.1.0.sql",
+       "docfile": "README",
+       "version": "0.1.0",
+       "abstract": "Extension to get information about the database: size, owner, name,tablespces, ext,  obj count,et"
+     }
+     }
+   ,
+   "resources": {
+      "homepage": "http://anthonysotolongo.wordpress.com",
+      "bugtracker": {
+         "mailto": "asotolongo@gmail.com"
+      },
+      "repository": {
+         "url":  "https://github.com/asotolongo/db_info.git",
+         "web":  "https://github.com/asotolongo ",
+        "type": "git"
+      }
+   },
+   "generated_by": "Anthony R. Sotolongo Leon",
+   "meta-spec": {
+      "version": "1.0.0",
+      "url": "http://pgxn.org/meta/spec.txt"
+   },
+   "tags": [
+      "info"
+   ]
+}
+
+
+
