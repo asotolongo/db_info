@@ -5,7 +5,7 @@ CREATE SCHEMA db_info;
 
 
 
-SET search_path = db_info, pg_catalog;
+SET search_path = db_info;
 
 
 CREATE FUNCTION get_datatype_used() RETURNS SETOF text
@@ -127,10 +127,10 @@ CREATE VIEW db_obj_count AS
              JOIN pg_type tp ON ((tp.oid = pr.prorettype)))
              LEFT JOIN pg_stat_user_functions pgst ON ((pr.oid = pgst.funcid)))
              JOIN pg_namespace nm ON ((pr.pronamespace = nm.oid)))
-          WHERE ((pr.proisagg = false) AND (pr.pronamespace IN ( SELECT pg_namespace.oid
+          WHERE ((pr.prokind not in ('a','w')) AND (pr.pronamespace IN ( SELECT pg_namespace.oid
                    FROM pg_namespace
                   WHERE (((pg_namespace.nspname !~~ 'pg_%'::text) AND (pg_namespace.nspname <> 'information_schema'::name)) AND (pg_namespace.nspname <> 'db_info'::name)))))) AS functions,
-    ( SELECT count(*) AS count
+    ( SELECT count(distinct trigger_schema||'.'||trigger_name) AS count
            FROM information_schema.triggers) AS triggers,
     ( SELECT count(*) AS count
            FROM pg_rules
@@ -150,5 +150,6 @@ CREATE VIEW db_obj_count AS
                   WHERE (((pg_matviews.schemaname <> 'pg_catalog'::name) AND (pg_matviews.schemaname <> 'information_schema'::name)) AND (pg_matviews.schemaname <> 'db_info'::name))) total) AS views;
 
 
-
+                 
+     
 

@@ -2,7 +2,7 @@ db_info extension
 ======================================
 
 This PostgreSQL extension implements  functions and views  to get information about the database: size, owner, name,tablespces, ext,  obj count,etc
-#Tested  9.4+
+#Tested  11+
 
 IMPORTANT: There're bugs in the existing version, please contact to me.
 

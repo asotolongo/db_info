@@ -1,5 +1,5 @@
 #extesion
 comment = 'Extension to get information about the database: size, owner, name,tablespces, ext,  obj count,etc '
-default_version = '0.1.0'
+default_version = '0.2.0'
 relocatable = true
 superuser = false
